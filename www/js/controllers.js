@@ -32,8 +32,14 @@ angular.module('starter.controllers',[])
 		console.log('[AngularJSCtrl]: '+dataResponse.list);
  		$scope.data = dataResponse.list;
 	});
-}).controller('AccessService', function($scope, Movie){
+
+}).controller('Movie_C', function($scope, Movie){
 	
-	 $scope.movies = Movie.query();
+	$scope.movies = Movie.query();
 	//$scope.profiles = User.get();
+}).controller('AccessService_Control', function($scope, AccessService_Factory){
+
+	 // var a = AccessService_Factory.get();
+	 // console.log('AccessService_Control'+ a.id);
+	$scope.profiles = AccessService_Factory.get() ;
 });

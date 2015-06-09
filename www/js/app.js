@@ -16,8 +16,8 @@ angular.module('ionicApp', ['ionic','starter.controllers','controlleretst','serv
       views: {
         'home-tab': {
           templateUrl: "templates/home.html",
-          //controller: 'HomeTabCtrl'
-         controller: 'AccessService'
+        //  controller: 'HomeTabCtrl',
+          controller: 'AccessService_Control'
         }
       }
     })
@@ -72,6 +72,5 @@ angular.module('ionicApp', ['ionic','starter.controllers','controlleretst','serv
         }
       }
     });
-
    $urlRouterProvider.otherwise("/tab/home");
 })
