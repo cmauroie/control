@@ -2,6 +2,7 @@ angular.module('factor',['ngResource'])
 
 .factory('Movie', function($resource){
   return $resource('http://movieapp-sitepointdemos.rhcloud.com/api/movies/:id',
+  
     { id : '@_id'},
     {update:{
       method:'PUT'
@@ -9,13 +10,21 @@ angular.module('factor',['ngResource'])
   });
 })
 .factory('AccessService_Factory', function($resource){
-	return $resource('http://199.180.186.183/rest/access/initialData',{ },{
+	//return $resource('http://199.180.186.183/rest/access/initialData',{ },{
 	//return $resource('http://192.168.34.21/Modipay/rest/access/initialData', { }, {
-		update: {
-
-			method:'GET',     
+    console.log("AccessService_Factory");
+    return $resource('http://192.168.56.1:8080/servlet/center?data=flight', { }, {
+		get: {
+			method:'GET',  
 			headers:{
-        'Content-Type':'application/json','Authorization':'Basic MzcyNDI4OnZhbGxlMTIzNA=='}
+               // 'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+               'Access-Control-Allow-Origin':'*',
+               // 'Access-Control-Allow-Methods':'GET, POST PUT, DELETE, OPTIONS',
+               // 'Access-Control-Allow-Credentials':'true',
+               // 'Accept':'application/json',
+               // 'Cache-Control':'no-cache, no-store, must-revalidate',
+               // 'Content-Type':'text/plain',
+               'Authorization':'12345'}
  			}
  });
 });
@@ -25,4 +34,12 @@ angular.module('factor',['ngResource'])
       'Access-Control-Allow-Origin':'Context.Request.Headers["Origin"]',
       'Access-Control-Allow-Methods':'GET, POST PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Credentials':'true',
+
+
+
+.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+}])
+
+
 */

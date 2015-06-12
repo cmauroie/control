@@ -26,6 +26,9 @@
       "platform": "android",
       "locator": "browser"
     },
-    "android"
+    {
+      "platform": "android",
+      "locator": "browser"
+    }
   ]
 }
