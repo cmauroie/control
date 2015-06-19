@@ -39,7 +39,13 @@ angular.module('starter.controllers',[])
 	//$scope.profiles = User.get();
 }).controller('AccessService_Control', function($scope, AccessService_Factory){
 
-	 // var a = AccessService_Factory.get();
-	 // console.log('AccessService_Control'+ a.id);
-	$scope.profiles = AccessService_Factory.get() ;
+	var a = AccessService_Factory.get();
+	console.log('AccessService_Control response: '+ a.);
+	$scope.profiles = a;/*.
+
+	$promise.then(function (result) {
+		alert('Success :D'+result.value);
+	}, function(error){
+		alert('Error :D : '+error.error);
+	}) ;*/
 });
